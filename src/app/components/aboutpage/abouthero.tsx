@@ -33,7 +33,10 @@ export default function AboutHero() {
             transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.1 }}
             className={`relative w-32 shrink-0 xs:w-40 sm:w-52 md:w-64 lg:w-72 xl:w-80 ${photo.rotate} ${photo.z}`}
           >
-            <div className="overflow-hidden rounded-xl shadow-xl  sm:rounded-2xl">
+            <div
+              className="overflow-hidden border border-black/10 shadow-xl"
+              style={{ borderRadius: "var(--radius-minimal)" }}
+            >
               <Image
                 src={photo.src}
                 alt={photo.alt}
@@ -54,7 +57,7 @@ export default function AboutHero() {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
         className="mx-auto mt-12 max-w-3xl md:mt-16"
       >
-        <h1 className="font-outfit text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+        <h1 className="font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl">
           Biography
         </h1>
 
@@ -62,18 +65,18 @@ export default function AboutHero() {
           {paragraphs.map((text, i) => (
             <p
               key={i}
-              className="text-[15px] leading-relaxed text-slate-600 sm:text-base md:text-lg"
+              className="text-[15px] leading-relaxed text-foreground/65 sm:text-base md:text-lg"
             >
               {text}
             </p>
           ))}
         </div>
 
-        <div className="mt-8 border-l-2 border-slate-300 pl-5 sm:mt-10">
-          <h2 className="font-outfit text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+        <div className="mt-8 border-l-2 border-accent/40 pl-5 sm:mt-10">
+          <h2 className="font-display text-xl font-medium tracking-tight text-foreground sm:text-2xl">
             Leadership Philosophy
           </h2>
-          <p className="mt-3 text-[15px] leading-relaxed text-slate-600 sm:text-base md:text-lg">
+          <p className="mt-3 text-[15px] leading-relaxed text-foreground/65 sm:text-base md:text-lg">
             Edem&apos;s work is rooted in systems thinking, collaborative
             innovation, and the belief that Africa&apos;s future depends on
             fluid structures capable of responding to fast‑shifting

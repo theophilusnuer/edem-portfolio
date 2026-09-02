@@ -3,6 +3,7 @@ import pnb from "../../assets/pnb.webp";
 import tdf from "../../assets/tdf.webp";
 import dag from "../../assets/dag.jpg";
 import FeatureCard from "../Card";
+import GlideCarousel from "../GlideCarousel";
 
 const works = [
   {
@@ -37,16 +38,21 @@ const works = [
 
 export default function FeaturedWorks() {
   return (
-    <section className="mx-auto max-w-6xl px-6 pb-20">
-      <h2 className="text-center font-outfit text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-        Featured Works
-      </h2>
+    <section className="mx-auto max-w-6xl px-6 pb-20 pt-4 md:pb-28">
+      <div className="mb-12 flex flex-col items-center text-center md:mb-16">
+        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          Selected Work
+        </span>
+        <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-foreground md:text-4xl">
+          Featured Works
+        </h2>
+      </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2">
+      <GlideCarousel perView={2} gap={32}>
         {works.map((work) => (
           <FeatureCard key={work.title} {...work} />
         ))}
-      </div>
+      </GlideCarousel>
     </section>
   );
 }

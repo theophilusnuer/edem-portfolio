@@ -47,10 +47,10 @@ export default function ContactForm() {
 
   return (
     <section className="mx-auto max-w-3xl px-6 py-20">
-      <h2 className="font-outfit text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <h2 className="font-display text-3xl font-medium tracking-tight text-foreground md:text-4xl">
         Let&apos;s have a conversation
       </h2>
-      <p className="mt-3 text-lg text-slate-600">
+      <p className="mt-3 text-lg text-foreground/65">
         Send me a message for advisory engagements, speaking invitations, or
         institutional collaboration.
       </p>
@@ -60,13 +60,13 @@ export default function ContactForm() {
         {OPTIONS.map((option) => (
           <label
             key={option.value}
-            className="flex cursor-pointer items-center gap-2 text-sm font-medium text-slate-700"
+            className="flex cursor-pointer items-center gap-2 text-sm font-medium text-foreground/80"
           >
             <input
               type="checkbox"
               checked={requestType === option.value}
               onChange={() => setRequestType(option.value)}
-              className="h-4 w-4 rounded border-slate-300 accent-slate-900"
+              className="h-4 w-4 rounded border-black/20 accent-foreground"
             />
             {option.label}
           </label>
@@ -75,7 +75,7 @@ export default function ContactForm() {
 
       <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label htmlFor="name" className="text-sm font-medium text-slate-700">
+          <label htmlFor="name" className="text-sm font-medium text-foreground/80">
             Name
           </label>
           <input
@@ -85,12 +85,12 @@ export default function ContactForm() {
             pattern="[A-Za-z\u00C0-\u017F\s'-]+"
             title="Only letters, spaces, apostrophes and hyphens are allowed"
             required
-            className="rounded-sm border border-slate-300 bg-white/70 px-4 py-2.5 text-slate-900 outline-none focus:border-slate-500"
+            className="control border border-black/15 bg-white/70 px-4 py-2.5 text-foreground outline-none transition-colors focus:border-accent"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="text-sm font-medium text-slate-700">
+          <label htmlFor="email" className="text-sm font-medium text-foreground/80">
             Email
           </label>
           <input
@@ -100,24 +100,24 @@ export default function ContactForm() {
             pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
             title="Enter a valid email address"
             required
-            className="rounded-sm border border-slate-300 bg-white/70 px-4 py-2.5 text-slate-900 outline-none focus:border-slate-500"
+            className="control border border-black/15 bg-white/70 px-4 py-2.5 text-foreground outline-none transition-colors focus:border-accent"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="institution" className="text-sm font-medium text-slate-700">
-            Institution <span className="text-slate-400">(optional)</span>
+          <label htmlFor="institution" className="text-sm font-medium text-foreground/80">
+            Institution <span className="text-foreground/40">(optional)</span>
           </label>
           <input
             id="institution"
             name="institution"
             type="text"
-            className="rounded-sm border border-slate-300 bg-white/70 px-4 py-2.5 text-slate-900 outline-none focus:border-slate-500"
+            className="control border border-black/15 bg-white/70 px-4 py-2.5 text-foreground outline-none transition-colors focus:border-accent"
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="contactNumber" className="text-sm font-medium text-slate-700">
+          <label htmlFor="contactNumber" className="text-sm font-medium text-foreground/80">
             Contact Number
           </label>
           <input
@@ -131,12 +131,12 @@ export default function ContactForm() {
               e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+]/g, "");
             }}
             required
-            className="rounded-sm border border-slate-300 bg-white/70 px-4 py-2.5 text-slate-900 outline-none focus:border-slate-500"
+            className="control border border-black/15 bg-white/70 px-4 py-2.5 text-foreground outline-none transition-colors focus:border-accent"
           />
         </div>
 
         <div className="col-span-full flex flex-col gap-2">
-          <label htmlFor="message" className="text-sm font-medium text-slate-700">
+          <label htmlFor="message" className="text-sm font-medium text-foreground/80">
             Message
           </label>
           <textarea
@@ -144,7 +144,7 @@ export default function ContactForm() {
             name="message"
             rows={5}
             required
-            className="rounded-sm border border-slate-300 bg-white/70 px-4 py-2.5 text-slate-900 outline-none focus:border-slate-500"
+            className="control border border-black/15 bg-white/70 px-4 py-2.5 text-foreground outline-none transition-colors focus:border-accent"
           />
         </div>
 
@@ -152,7 +152,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full rounded-sm bg-slate-900 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 cursor-pointer disabled:opacity-60 disabled:hover:scale-100"
+            className="control w-full bg-foreground px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark cursor-pointer disabled:opacity-60"
           >
             {status === "sending" ? "Sending..." : "Send"}
           </button>

@@ -1,16 +1,24 @@
 @import "tailwindcss";
+@import "@glidejs/glide/dist/css/glide.core.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfaf8;
+  --foreground: #14181f;
+  --color-accent: #9a7b2f;
+  --color-accent-dark: #7a5f22;
+  --radius-minimal: 3px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-outfit: var(--font-outfit);
+  --font-display: var(--font-fraunces);
+  --radius-minimal: var(--radius-minimal);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -20,8 +28,108 @@
   }
 } */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Slim, understated scrollbar for a more refined feel */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(20, 24, 31, 0.22);
+  border: 2px solid var(--background);
+  border-radius: 9999px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(20, 24, 31, 0.22) transparent;
+}
+
+/* ---------------------------------------------------------------- */
+/* Glide.js carousel — minimal, understated chrome                   */
+/* ---------------------------------------------------------------- */
+.glide {
+  position: relative;
+}
+
+.glide__slide {
+  height: auto;
+  display: flex;
+}
+
+.glide__slides {
+  align-items: stretch;
+}
+
+.glide__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  translate: 0 -50%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(20, 24, 31, 0.12);
+  border-radius: var(--radius-minimal);
+  background: rgba(251, 250, 248, 0.9);
+  color: var(--foreground);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.glide__arrow:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.glide__arrow--left {
+  left: -0.25rem;
+}
+.glide__arrow--right {
+  right: -0.25rem;
+}
+
+.glide__bullets {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.glide__bullet {
+  height: 6px;
+  width: 6px;
+  border-radius: var(--radius-minimal);
+  border: none;
+  background: rgba(20, 24, 31, 0.18);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.glide__bullet--active {
+  width: 20px;
+  background: var(--color-accent);
+}
+
+/* Minimal-radius form controls */
+.control {
+  border-radius: var(--radius-minimal);
+}
+
