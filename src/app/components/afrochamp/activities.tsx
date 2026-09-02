@@ -50,7 +50,7 @@ export default function Activities() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-10 text-center font-outfit text-3xl font-bold tracking-tight text-slate-900 sm:mb-12 sm:text-left md:text-4xl"
+          className="mb-10 text-center font-display text-3xl font-medium tracking-tight text-foreground sm:mb-12 sm:text-left md:text-4xl"
         >
           Featured Works
         </motion.h2>
@@ -67,10 +67,13 @@ export default function Activities() {
                 ease: "easeOut",
                 delay: i * 0.1,
               }}
-              className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-8"
+              className="flex flex-col gap-5 border-b border-black/[0.06] pb-10 last:border-b-0 last:pb-0 sm:flex-row sm:items-start sm:gap-8 md:pb-12"
             >
               {/* Image */}
-              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-xl sm:w-56 md:w-64 lg:w-72">
+              <div
+                className="relative aspect-[4/3] w-full shrink-0 overflow-hidden border border-black/[0.06] sm:w-56 md:w-64 lg:w-72"
+                style={{ borderRadius: "var(--radius-minimal)" }}
+              >
                 <Image
                   src={activity.image}
                   alt={activity.title}
@@ -81,10 +84,10 @@ export default function Activities() {
 
               {/* Text */}
               <div className="min-w-0 flex-1">
-                <h3 className="font-outfit text-lg font-bold tracking-tight text-slate-900 sm:text-xl md:text-2xl">
+                <h3 className="font-outfit text-lg font-bold tracking-tight text-foreground sm:text-xl md:text-2xl">
                   {activity.title}
                 </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-slate-600 sm:text-base">
+                <p className="mt-2 text-[15px] leading-relaxed text-foreground/65 sm:text-base">
                   {activity.description}
                 </p>
               </div>

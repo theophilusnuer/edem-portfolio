@@ -17,6 +17,7 @@ import abm11 from "../../assets/abm11.jpeg";
 import abm12 from "../../assets/abm12.jpeg";
 import abm13 from "../../assets/abm13.jpeg";
 import { motion } from "framer-motion";
+import GlideCarousel from "../GlideCarousel";
 
 const gallery = [
   abm1,
@@ -47,7 +48,7 @@ const materials = [
     ),
     body: (
       <>
-        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+        <p className="mt-2 text-sm leading-relaxed text-foreground/65">
           Edem Adzogenu is an International Business and Policy Consultant and
           African entrepreneur who serves as the Founder and Co‑Chair of
           AfroChampions, the public‑private partnership platform driving
@@ -55,7 +56,7 @@ const materials = [
         </p>
         <Link
           href="/about"
-          className="mt-4 inline-block rounded-full bg-slate-900 px-5 py-2 text-xs font-semibold text-white shadow-lg shadow-slate-900/10 transition-transform hover:scale-105"
+          className="control mt-4 inline-block bg-foreground px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-accent-dark"
         >
           Read Full Biography
         </Link>
@@ -75,7 +76,7 @@ const materials = [
     body: (
       <a
         href="mailto:press@edemadzogenu.com"
-        className="mt-2 inline-block text-sm font-medium text-slate-900 underline underline-offset-4"
+        className="mt-2 inline-block text-sm font-medium text-foreground underline underline-offset-4"
       >
         info@edemadzogenu.com
       </a>
@@ -92,7 +93,7 @@ const materials = [
       />
     ),
     body: (
-      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+      <p className="mt-2 text-sm leading-relaxed text-foreground/65">
         Edem Adzogenu is an International Business and Policy Consultant,
         entrepreneur, and Founder &amp; Co Chair of AfroChampions. His work
         focuses on designing continental platforms that strengthen
@@ -112,7 +113,7 @@ const materials = [
       />
     ),
     body: (
-      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+      <p className="mt-2 text-sm leading-relaxed text-foreground/65">
         AfroChampions is a public‑private partnership platform dedicated to
         advancing Africa&apos;s deep integration. Its work focuses on
         building systems that strengthen coordination, trust, and innovation
@@ -131,7 +132,8 @@ export default function MediaKitHero() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative aspect-[4/5] w-full max-w-sm overflow-hidden"
+          className="relative aspect-[4/5] w-full max-w-sm overflow-hidden border border-black/10"
+          style={{ borderRadius: "var(--radius-minimal)" }}
         >
           <Image src={edem} alt="Edem Adzogenu" fill priority className="object-cover" />
         </motion.div>
@@ -142,20 +144,21 @@ export default function MediaKitHero() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
         >
-          <span className="font-outfit text-sm font-semibold uppercase tracking-widest text-amber-600">
+          <span className="font-outfit text-sm font-semibold uppercase tracking-widest text-accent">
             Press &amp; Media
           </span>
-          <h1 className="mt-3 font-outfit text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+          <h1 className="mt-3 font-display text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
             Media Kit
           </h1>
-          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-slate-600 sm:text-base md:text-lg">
+          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-foreground/65 sm:text-base md:text-lg">
             Everything you need to feature, introduce, or interview Edem
             Adzogenu — bios, imagery, and official materials, ready to use.
           </p>
 
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition-transform hover:scale-105"
+            className="mt-8 inline-block border border-foreground bg-foreground px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-transparent hover:text-foreground"
+            style={{ borderRadius: "var(--radius-minimal)" }}
           >
             Request Media Kit
           </Link>
@@ -164,7 +167,7 @@ export default function MediaKitHero() {
 
       {/* Included Materials */}
       <div className="mx-auto mt-16 max-w-6xl md:mt-24">
-        <h2 className="font-outfit text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <h2 className="font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
           Included Materials
         </h2>
 
@@ -176,10 +179,11 @@ export default function MediaKitHero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
-              className={`group flex flex-col gap-6 border border-slate-200 bg-white/60 p-6 transition-colors hover:border-slate-900 ${item.span}`}
+              className={`group flex flex-col gap-6 border border-black/[0.08] bg-white/50 p-6 transition-colors hover:border-accent/50 ${item.span}`}
+              style={{ borderRadius: "var(--radius-minimal)" }}
             >
               <svg
-                className="h-8 w-8 text-slate-900"
+                className="h-8 w-8 text-accent"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -188,7 +192,7 @@ export default function MediaKitHero() {
                 {item.icon}
               </svg>
               <div>
-                <h3 className="font-outfit text-lg font-semibold text-slate-900">
+                <h3 className="font-outfit text-lg font-semibold text-foreground">
                   {item.title}
                 </h3>
                 {item.body}
@@ -200,27 +204,22 @@ export default function MediaKitHero() {
 
       {/* Gallery */}
       <div className="mx-auto mt-16 max-w-6xl md:mt-24">
-        <h2 className="font-outfit text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <h2 className="font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
           Gallery
         </h2>
 
-        <div className="mt-8 columns-2 gap-4 sm:columns-3 md:gap-6">
-          {gallery.map((photo, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.06 }}
-              className="relative mb-4 break-inside-avoid overflow-hidden md:mb-6"
-            >
-              <Image
-                src={photo}
-                alt="Edem Adzogenu"
-                className="h-auto w-full object-cover"
-              />
-            </motion.div>
-          ))}
+        <div className="mt-8">
+          <GlideCarousel perView={4} gap={20}>
+            {gallery.map((photo, i) => (
+              <div
+                key={i}
+                className="relative aspect-[4/5] w-full overflow-hidden border border-black/[0.08]"
+                style={{ borderRadius: "var(--radius-minimal)" }}
+              >
+                <Image src={photo} alt={`Edem Adzogenu ${i + 1}`} fill className="object-cover" />
+              </div>
+            ))}
+          </GlideCarousel>
         </div>
       </div>
     </section>

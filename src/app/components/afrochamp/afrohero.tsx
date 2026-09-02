@@ -13,7 +13,10 @@ export default function AfroHero() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="mx-auto max-w-7xl"
       >
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5 sm:aspect-[16/9] sm:rounded-3xl md:aspect-[21/9]">
+        <div
+          className="relative aspect-[4/3] overflow-hidden shadow-2xl ring-1 ring-black/5 sm:aspect-[16/9] md:aspect-[21/9]"
+          style={{ borderRadius: "var(--radius-minimal)" }}
+        >
           <Image
             src={afch}
             alt="AfroChampions"

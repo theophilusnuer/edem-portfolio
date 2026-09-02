@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Outfit } from "next/font/google";
+import { Outfit, Fraunces } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PageBackground from "./components/PageBackground";
@@ -9,6 +9,13 @@ import PageBackground from "./components/PageBackground";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz", "SOFT", "WONK"],
 });
 
 const geistSans = Geist({
@@ -31,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} h-full antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${fraunces.variable} h-full antialiased`}
       >
         <PageBackground>
           <Navbar />
