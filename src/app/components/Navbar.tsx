@@ -10,6 +10,7 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "AfroChampions", href: "/afrochampions" },
   { label: "Leadership", href: "/leadership" },
+  { label: "Advisory & Governance Roles", href: "/roles" },
   { label: "Media Kit", href: "/mediakit" },
 ];
 
