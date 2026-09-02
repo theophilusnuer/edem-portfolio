@@ -22,7 +22,7 @@ const photos = [
 
 export default function AboutHero() {
   return (
-    <section className="w-full px-4 py-14 sm:px-6 md:px-10 md:py-20 lg:px-16">
+    <section className="w-full px-4 pt-14  sm:px-6 md:px-10 md:pt-20 pb-14 lg:px-16">
       {/* Photo collage - responsive */}
       <div className="mx-auto flex max-w-5xl items-center justify-center -space-x-6 sm:-space-x-8 md:-space-x-12 lg:-space-x-14">
         {photos.map((photo, i) => (
@@ -31,7 +31,7 @@ export default function AboutHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.1 }}
-            className={`relative w-28 shrink-0 xs:w-32 sm:w-40 md:w-52 lg:w-60 xl:w-64 ${photo.rotate} ${photo.z}`}
+            className={`relative w-32 shrink-0 xs:w-40 sm:w-52 md:w-64 lg:w-72 xl:w-80 ${photo.rotate} ${photo.z}`}
           >
             <div className="overflow-hidden rounded-xl shadow-xl  sm:rounded-2xl">
               <Image

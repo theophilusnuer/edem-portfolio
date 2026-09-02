@@ -1,10 +1,13 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
+import pnb from "../../assets/pnb.webp";
 import { motion } from "framer-motion";
-import plh from "../../assets/plh.jpeg";
-import abm1 from "../../assets/abm1.jpg";
-import abm3 from "../../assets/abm3.jpeg";
+import tdf from "../../assets/tdf.webp";
+import afch from "../../assets/afch.webp";
+import afcfta from "../../assets/afcfta.svg";
+import abm4 from "../../assets/abm4.webp";  
+import dag from "../../assets/dag.jpg";
 import edemFooter from "../../assets/edem-footer.png";
 
 type Milestone = {
@@ -15,12 +18,12 @@ type Milestone = {
 
 // Placeholder milestones — replace image, year, and title with real career milestones.
 const milestones: Milestone[] = [
-  { image: plh, year: "Year", title: "Founder & Co Chair, AfroChampions" },
-  { image: abm1, year: "Year", title: "Architect of PanaBIOS" },
-  { image: abm3, year: "Year", title: "Co designer of AfCFTA Hub" },
-  { image: abm1, year: "Year", title: "Guided adoption of TDF by AU Heads of State" },
-  { image: abm1, year: "Year", title: "Co creator of the 4D Agenda" },
-  { image: edemFooter, year: "Year", title: "Advisor to governments, DFIs, and global institutions" },
+  { image: afch, year: "Year", title: "Founder & Co Chair, AfroChampions" },
+  { image: pnb, year: "Year", title: "Architect of PanaBIOS" },
+  { image: afcfta, year: "Year", title: "Co designer of AfCFTA Hub" },
+  { image: tdf, year: "Year", title: "Guided adoption of TDF by AU Heads of State" },
+  { image: dag, year: "Year", title: "Co creator of the 4D Agenda" },
+  { image: abm4, year: "Year", title: "Advisor to governments, DFIs, and global institutions" },
 ];
 
 
@@ -47,7 +50,7 @@ export default function CareerMilestones() {
                   src={milestone.image}
                   alt={milestone.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <span className="mt-4 text-sm font-medium text-slate-500">

@@ -1,30 +1,33 @@
-import plh from "../../assets/plh.jpeg";
+import afcfta from "../../assets/afcfta.svg";
+import pnb from "../../assets/pnb.webp";
+import tdf from "../../assets/tdf.webp";
+import dag from "../../assets/dag.jpg";
 import FeatureCard from "../Card";
 
 const works = [
   {
-    image: plh,
+    image: pnb,
     alt: "PanaBIOS ",
     title: "PanaBIOS ",
     description:
       "AU aligned biosurveillance architecture enabling safe mobility and coordinated public health responses.",
   },
   {
-    image: plh,
+    image: afcfta,
     alt: "AfCFTA Hub ",
     title: "AfCFTA Hub ",
     description:
       "Africa’s first trade super app, providing AfCFTA numbers, trust building tools, and cross border business enablement.",
   },
   {
-    image: plh,
+    image: tdf,
     alt: "Trillion-Dollar Investment Framework (TDF)",
     title: "Trillion-Dollar Investment Framework (TDF)",
     description:
       "Private sector led investment framework designed to mobilise large scale capital for AfCFTA implementation.",
   },
   {
-    image: plh,
+    image: dag,
     alt: "4D Agenda",
     title: "4D Agenda",
     description:

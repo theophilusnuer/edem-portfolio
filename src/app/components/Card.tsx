@@ -20,7 +20,7 @@ export default function Card({
           src={image}
           alt={alt}
           fill
-          className="object-cover"
+          className="object-contain border-black/20 border-1"
         />
       </div>
       <h3 className="mt-4 font-outfit text-xl font-semibold text-slate-900">

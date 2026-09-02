@@ -66,13 +66,13 @@ export default function Hero() {
           >
             <a
               href="/about"
-              className="whitespace-nowrap rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-slate-900/10 transition-transform hover:scale-105 sm:px-7 sm:py-3 sm:text-sm"
+              className="whitespace-nowrap rounded-full bg-slate-900 px-4.5 py-3 text-xs font-semibold text-white shadow-lg shadow-slate-900/10 transition-transform hover:scale-105 sm:px-7 sm:py-3 sm:text-sm"
             >
-              Learn More
+              Biography
             </a>
             <a
               href="/contact"
-              className="whitespace-nowrap rounded-full border border-slate-300 bg-white/70 px-4 py-2 text-xs font-semibold text-slate-800 backdrop-blur transition-transform hover:scale-105 sm:px-7 sm:py-3 sm:text-sm"
+              className="whitespace-nowrap rounded-full border border-slate-300 bg-white/70 px-4.5 py-3 text-xs font-semibold text-slate-800 backdrop-blur transition-transform hover:scale-105 sm:px-7 sm:py-3 sm:text-sm"
             >
               Get In Touch
             </a>
