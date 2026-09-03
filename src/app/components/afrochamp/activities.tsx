@@ -1,99 +1,195 @@
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+
+import afcfta from "../../assets/afcfta.svg";
 import pnb from "../../assets/pnb.webp";
-import afch from "../../assets/afch.webp";
 import tdf from "../../assets/tdf.webp";
 import dag from "../../assets/dag.jpg";
 
-type Activity = {
-  image: StaticImageData;
-  title: string;
-  description: string;
-};
-
-const activities: Activity[] = [
+const works = [
   {
+    number: "01",
     image: pnb,
+    alt: "PanaBIOS",
     title: "PanaBIOS",
+    category: "Health Systems",
     description:
-      "PanaBIOS is an AU‑aligned biosurveillance suite designed to support safe mobility, contagion monitoring, spatial risk analytics, and cross‑border health clearance. It replaces costly physical restrictions with smart, digital controls.",
-  },
+"PanaBIOS is an AU aligned biosurveillance suite designed to support safe mobility, contagion monitoring, spatial risk analytics, and cross border health clearance. It replaces costly physical restrictions with smart, digital controls."  },
   {
-    image: afch,
+    number: "02",
+    image: afcfta,
+    alt: "AfCFTA Hub",
     title: "AfCFTA Hub",
+    category: "Trade & Integration",
     description:
-      "The AfCFTA Hub Super App provides AfCFTA numbers, trust‑building tools, and cross‑border business enablement. It is designed to help enterprises expand across borders and streamline how governments engage businesses and citizens.",
-  },
+"The AfCFTA Hub Super App provides AfCFTA numbers, trust building tools, and cross border business enablement. It is designed to help enterprises expand across borders and streamline how governments engage businesses and citizens."  },
   {
+    number: "03",
     image: tdf,
-    title: "Trillion Dollar Investment Framework (TDF)",
+    alt: "Trillion-Dollar Investment Framework",
+    title: "Trillion-Dollar Investment Framework",
+    category: "Investment",
     description:
-      "The TDF is a private‑sector‑led investment framework adopted by AU Heads of State to mobilise large‑scale capital for AfCFTA implementation and Agenda 2063.",
-  },
+"The TDF is a private sector led investment framework adopted by AU Heads of State to mobilise large scale capital for AfCFTA implementation and Agenda 2063."  },
   {
+    number: "04",
     image: dag,
+    alt: "4D Agenda",
     title: "4D Agenda",
+    category: "Innovation & Collaboration",
     description:
-      "The 4D Agenda is a collaborative innovation engine linking African governments, the African Union, the diaspora, and development finance institutions. It is built on principles of co‑creation, co‑innovation, cost‑sharing, and equitable reward‑sharing.",
-  },
+"The 4D Agenda is a collaborative innovation engine linking African governments, the African Union, the diaspora, and development finance institutions. It is built on principles of co creation, co innovation, cost sharing, and equitable reward sharing."  },
 ];
 
-export default function Activities() {
+export default function FeaturedWorks() {
   return (
-    <section className="w-full px-4 py-12 sm:px-6 md:px-10 md:py-16 lg:px-16">
-      <div className="mx-auto max-w-5xl">
-        {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-10 text-center font-display text-3xl font-medium tracking-tight text-foreground sm:mb-12 sm:text-left md:text-4xl"
-        >
-          Featured Works
-        </motion.h2>
+    <section className="relative overflow-hidden bg-[#f5f4f0] py-28 sm:py-36 font-outfit">
+      {/* Decorative background */}
+      <div className="pointer-events-none absolute right-0 top-0 h-125 w-125 rounded-full bg-amber-100/40 blur-[120px]" />
 
-        <div className="space-y-10 md:space-y-12">
-          {activities.map((activity, i) => (
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
+        {/* =====================================================
+            SECTION INTRO
+        ====================================================== */}
+
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
             <motion.div
-              key={activity.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="flex items-center gap-3"
+            >
+              <span className="h-1.5 w-14 bg-amber-500" />
+
+              <span className="text-sm font-medium uppercase tracking-[0.25em] text-slate-500">
+                Featured Works
+              </span>
+            </motion.div>
+
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: i * 0.1,
-              }}
-              className="flex flex-col gap-5 border-b border-black/[0.06] pb-10 last:border-b-0 last:pb-0 sm:flex-row sm:items-start sm:gap-8 md:pb-12"
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="mt-6 max-w-4xl font-outfit text-4xl font-semibold leading-[1.05] tracking-[-0.035em] text-slate-900 sm:text-5xl md:text-6xl"
             >
-              {/* Image */}
-              <div
-                className="relative aspect-[4/3] w-full shrink-0 overflow-hidden border border-black/[0.06] sm:w-56 md:w-64 lg:w-72"
-                style={{ borderRadius: "var(--radius-minimal)" }}
-              >
-                <Image
-                  src={activity.image}
-                  alt={activity.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              Turning ideas into systems
+              <span className="text-slate-400"> that move Africa forward.</span>
+            </motion.h2>
+          </div>
 
-              {/* Text */}
-              <div className="min-w-0 flex-1">
-                <h3 className="font-outfit text-lg font-bold tracking-tight text-foreground sm:text-xl md:text-2xl">
-                  {activity.title}
-                </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-foreground/65 sm:text-base">
-                  {activity.description}
-                </p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="max-w-md text-base leading-7 text-slate-500 lg:col-span-4 lg:pb-1 md:text-lg"
+          >
+            From health and trade to investment and innovation, these
+            initiatives reflect a focus on building practical systems for
+            continental integration.
+          </motion.p>
+        </div>
+
+        {/* =====================================================
+            WORKS
+        ====================================================== */}
+
+        <div className="mt-20">
+          {works.map((work, index) => (
+            <motion.article
+              key={work.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.05,
+              }}
+              className="group border-t border-slate-300/70 py-10 last:border-b lg:py-14"
+            >
+              <div
+                className={`grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-14 ${
+                  index % 2 !== 0 ? "lg:flex-row-reverse" : ""
+                }`}
+              >
+                {/* NUMBER */}
+                <div className="hidden lg:col-span-1 lg:block">
+                  <span className="font-mono tracking-widest text-slate-400">
+                    {work.number}
+                  </span>
+                </div>
+
+                {/* IMAGE */}
+                <div
+                  className={`lg:col-span-5 ${
+                    index % 2 !== 0 ? "lg:order-2" : ""
+                  }`}
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+                    <Image
+                      src={work.image}
+                      alt={work.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    />
+
+                    {/* subtle overlay */}
+                    <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/5" />
+                  </div>
+                </div>
+
+                {/* CONTENT */}
+                <div
+                  className={`lg:col-span-5 ${
+                    index % 2 !== 0 ? "lg:order-1" : ""
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-slate-400 lg:hidden">
+                      {work.number}
+                    </span>
+
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+                      {work.category}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-4 max-w-xl font-outfit text-3xl font-semibold leading-tight tracking-[-0.025em] text-slate-900 transition-colors duration-300 group-hover:text-slate-700 sm:text-4xl">
+                    {work.title}
+                  </h3>
+
+                  <p className="mt-5 max-w-lg text-base leading-7 text-slate-500 sm:text-lg">
+                    {work.description}
+                  </p>
+{/* 
+                  <Link
+                    href="/afrochampions"
+                    className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-900"
+                  >
+                    Explore project
+
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-300 transition-all duration-300 group-hover:border-slate-900 group-hover:bg-slate-900 group-hover:text-white">
+                      <ArrowUpRight size={15} />
+                    </span>
+                  </Link> */}
+                </div>
+
+                {/* EMPTY SPACING COLUMN */}
+                <div className="hidden lg:col-span-1 lg:block" />
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
+
+       
       </div>
     </section>
   );

@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import logo from "../assets/logo.jpeg";
 
 const navLinks = [
@@ -17,6 +16,10 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -34,123 +37,178 @@ const Navbar = () => {
     if (mobileOpen) setMobileOpen(false);
   }
 
+  // On non-home pages we always want the translucent style
+  const isSolid = !isHome || scrolled;
+
+  useEffect(() => {
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isHome]);
+
   return (
     <nav
-      className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled
-          ? "border-black/[0.06] bg-white/80 backdrop-blur-md"
-          : "border-transparent bg-white/40 backdrop-blur-sm"
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+        isSolid
+          ? "  bg-white/75  backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
-      <div className="relative mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 md:px-6">
-        {/* LOGO */}
-        <Link
-          href="/"
-          className="group flex items-center gap-3 font-outfit text-lg font-semibold tracking-tight text-foreground"
-        >
-          <span
-            className="relative block h-9 w-9 overflow-hidden border border-black/10 grayscale transition-all duration-300 group-hover:grayscale-0"
-            style={{ borderRadius: "var(--radius-minimal)" }}
-          >
-            <Image src={logo} alt="Edem Adzogenu" fill sizes="36px" className="object-cover" />
-          </span>
-          <span className="font-display text-lg italic leading-none">Edem Adzogenu</span>
-        </Link>
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-center px-5 sm:h-20 sm:px-6">
+        {/* DESKTOP NAVIGATION */}
+        <div className="hidden w-full items-center justify-between lg:flex">
+          {/* LOGO */}
+          <Link href="/" className="group flex shrink-0 items-center gap-3">
+            <div
+              className={`relative h-9 w-9 overflow-hidden rounded-full ring-2 transition-all duration-300 sm:h-10 sm:w-10 ${
+                isSolid ? "ring-slate-200 " : "ring-white/40"
+              }`}
+            >
+              <Image
+                src={logo}
+                alt="Edem Adzogenu"
+                fill
+                className="object-cover"
+                sizes="40px"
+                priority
+              />
+            </div>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden items-center gap-x-7 lg:flex">
-          {navLinks.map((item) => {
-            const active = pathname === item.href;
-            return (
+            <span
+              className={`font-outfit text-base font-semibold tracking-tight transition-colors duration-300 ${
+                isSolid ? "text-slate-900" : "text-white"
+              }`}
+            >
+              Edem Adzogenu
+            </span>
+          </Link>
+
+          {/* CENTRED MENU */}
+          <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-6 xl:gap-8">
+            {navLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group relative py-2 text-[13px] font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground"
+                className={`whitespace-nowrap text-sm font-medium transition-all duration-300 hover:underline hover:underline-offset-4 ${
+                  isSolid ? "text-slate-800" : "text-white"
+                }`}
               >
                 {item.label}
-                <span
-                  className={`absolute -bottom-0.5 left-0 h-px bg-accent transition-all duration-300 ${
-                    active ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
               </Link>
-            );
-          })}
+            ))}
+          </div>
 
+          {/* CONTACT */}
           <Link
             href="/contact"
-            className="border border-foreground bg-foreground px-5 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-transparent hover:text-foreground"
-            style={{ borderRadius: "var(--radius-minimal)" }}
+            className={`shrink-0 rounded-sm border px-5 py-2 text-sm font-medium transition-all duration-300 ${
+              isSolid
+                ? "border-slate-900 bg-slate-900 text-white hover:bg-transparent hover:text-slate-900"
+                : "border-white/80 bg-white text-slate-900 hover:bg-transparent hover:text-white"
+            }`}
           >
             Get In Touch
           </Link>
         </div>
 
-        {/* MOBILE TOGGLE */}
-        <button
-          className="flex h-9 w-9 items-center justify-center lg:hidden"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          <svg
-            className="h-5 w-5 text-foreground"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={1.75}
+        {/* MOBILE HEADER */}
+        <div className="flex w-full items-center justify-between lg:hidden">
+          <Link href="/" className="flex items-center gap-2.5">
+            <div
+              className={`relative h-9 w-9 overflow-hidden rounded-full ring-2 transition-all duration-300 ${
+                isSolid ? "ring-slate-200" : "ring-white/40"
+              }`}
+            >
+              <Image
+                src={logo}
+                alt="Edem Adzogenu"
+                fill
+                className="object-cover"
+                sizes="36px"
+                priority
+              />
+            </div>
+
+            <span
+              className={`font-outfit text-base font-semibold tracking-tight transition-colors duration-300 ${
+                isSolid ? "text-slate-900" : "text-white"
+              }`}
+            >
+              Edem Adzogenu
+            </span>
+          </Link>
+
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            className={`flex h-10 w-10 items-center justify-center transition-colors ${
+              isSolid ? "text-slate-900" : "text-white"
+            }`}
           >
             {mobileOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             )}
-          </svg>
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* MOBILE MENU */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-black/[0.06] bg-white/95 backdrop-blur-md lg:hidden"
-          >
-            <div className="flex flex-col">
-              {navLinks.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.25, delay: i * 0.04 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="block border-b border-black/[0.04] px-5 py-3.5 text-sm font-medium text-foreground"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
+      <div
+        className={`overflow-hidden transition-all duration-400 lg:hidden ${
+          mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+        } ${
+          isSolid
+            ? "border-t border-slate-200/60 bg-white/90 backdrop-blur-xl"
+            : "border-t border-white/10 bg-black/30 backdrop-blur-xl"
+        }`}
+      >
+        <div className="flex flex-col px-5 pb-6 pt-1">
+          {navLinks.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              className={`border-b py-3.5 text-sm font-medium transition-colors ${
+                isSolid
+                  ? "border-slate-100 text-slate-900"
+                  : "border-white/15 text-white"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
 
-              <div className="p-5">
-                <Link
-                  href="/contact"
-                  className="block w-full bg-foreground p-3 text-center text-sm font-semibold text-white"
-                  style={{ borderRadius: "var(--radius-minimal)" }}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Get In Touch
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <Link
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+            className={`mt-5 rounded-sm border px-5 py-3 text-center text-sm font-medium transition-all ${
+              isSolid
+                ? "border-slate-900 bg-slate-900 text-white"
+                : "border-white bg-white text-slate-900"
+            }`}
+          >
+            Get In Touch
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 };

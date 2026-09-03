@@ -40,11 +40,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${fraunces.variable} h-full antialiased`}
       >
-        <PageBackground>
+        
           <Navbar />
           <main className="flex-1">{children}</main>
         <Footer />
-        </PageBackground>
+        
       </body>
     </html>
   );

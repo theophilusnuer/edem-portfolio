@@ -1,87 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight, Globe2 } from "lucide-react";
 
-const roles = [
-  { position: "Co‑Chair", institution: "Pandemic Fund External Advisory Council" },
-  { position: "Member", institution: "Governing Council — African Public Health Foundation" },
-  { position: "Non‑Executive Director", institution: "Capital Hospital Group" },
-  { position: "Board Member", institution: "PEPFAR Scientific Advisory Board" },
-  { position: "Vice Chairman", institution: "Nigeria Digital Health Initiative" },
-  { position: "Board Member", institution: "Agridex" },
-  { position: "Senior Advisor on Innovation and Digitization", institution: "Africa CDC" },
-];
 
-const expertise = [
-  {
-    label: "Systems design",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a7.712 7.712 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.127.332-.184.582-.496.644-.87l.214-1.28Z"
-      />
-    ),
-  },
-  {
-    label: "Public‑private partnerships",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.001-3.197a3 3 0 0 1 4.682-2.72M12 6.375a3 3 0 1 0 0 5.25 3 3 0 0 0 0-5.25Zm-8.25 3.75a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm18 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-      />
-    ),
-  },
-  {
-    label: "Innovation strategy",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
-      />
-    ),
-  },
-  {
-    label: "Governance reform",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
-      />
-    ),
-  },
-  {
-    label: "Continental integration",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A8.959 8.959 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
-      />
-    ),
-  },
-];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
 
-const badge = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut" as const,
+    },
+  },
 };
 
 export default function RolesHero() {
   return (
+<<<<<<< HEAD
     <section className="relative w-full overflow-hidden px-4 py-14 sm:px-6 md:px-10 md:py-20 lg:px-16">
       {/* Watermark */}
       <span
@@ -146,11 +86,33 @@ export default function RolesHero() {
               <p className="relative mt-1 text-sm text-foreground/65 sm:text-base">
                 {role.institution}
               </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+=======
+    <main className="relative overflow-hidden bg-[#f8f7f3] text-slate-900">
+      {/* =========================================================
+          HERO
+      ========================================================== */}
 
+      <section className="relative border-b border-slate-900/10">
+        {/* Decorative vertical line */}
+        <div className="pointer-events-none absolute left-[8%] top-0 hidden h-full w-px bg-slate-900/[0.06] lg:block" />
+
+        <div className="mx-auto max-w-7xl px-6 pb-20 pt-24 sm:px-10 sm:pb-28 sm:pt-32 lg:px-16 lg:pb-36">
+          <div className="grid lg:grid-cols-12 lg:gap-12">
+            {/* Small index */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              className="mb-8 lg:col-span-2 lg:mb-0"
+            >
+              <div className="flex items-center gap-3 lg:sticky lg:top-28">
+                <span className="h-1.5 w-12 bg-amber-600" />
+              
+              </div>
+>>>>>>> 5710dc9 (new ui update)
+            </motion.div>
+
+<<<<<<< HEAD
       {/* Expertise Areas */}
       <div className="relative mx-auto mt-20 max-w-4xl md:mt-28">
         <motion.h2
@@ -188,10 +150,82 @@ export default function RolesHero() {
               <p className="font-outfit text-sm font-semibold text-foreground sm:text-base">
                 {area.label}
               </p>
+=======
+            {/* Main heading */}
+            <div className="lg:col-span-8">
+              <motion.h1
+                initial={{ opacity: 0, y: 35 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeOut",
+                }}
+                className="font-outfit text-[3.5rem] font-medium leading-[0.94] tracking-[-0.055em] text-slate-950 sm:text-6xl md:text-7xl lg:text-[6.5rem]"
+              >
+                Leadership
+                <span className="block text-slate-400">
+                  beyond the title.
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.15,
+                  ease: "easeOut",
+                }}
+                className="mt-10 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg"
+              >
+                Edem serves on boards, advisory councils, and institutional
+                platforms working across health, innovation, governance, and
+                Africa&apos;s broader development architecture.
+              </motion.p>
+            </div>
+
+            {/* Right metadata */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.3,
+              }}
+              className="mt-12 flex items-end lg:col-span-2 lg:mt-0 lg:justify-end"
+            >
+           
+>>>>>>> 5710dc9 (new ui update)
             </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          </div>
+        </div>
+      </section>
+
+     
+
+      <section className="relative overflow-hidden bg-slate-950 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_50%,rgba(196,161,91,0.12),transparent_35%)]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:px-10 sm:py-28 lg:px-16 lg:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
+          >
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-500">
+              Leadership perspective
+            </p>
+
+            <blockquote className="mt-7 font-outfit text-3xl font-light leading-[1.15] tracking-[-0.035em] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+              “The most meaningful leadership is not defined by position,
+              but by the ability to connect people, institutions and ideas
+              around a common purpose.”
+            </blockquote>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   );
 }
