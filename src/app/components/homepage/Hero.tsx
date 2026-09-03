@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -11,9 +11,11 @@ import {
   MapPin,
 } from "lucide-react";
 
-import edem from "../../assets/edem-hero.jpeg";
+import abm3Hero from "../../assets/abm3-hero.png";
 
 export default function Hero() {
+const [typingComplete, setTypingComplete] = useState(false);
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[#080b0f] text-white">
       {/* =========================================================
@@ -34,7 +36,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute -right-40 top-1/4 h-[500px] w-[500px] rounded-full bg-amber-400/10 blur-[120px]"
+        className="absolute -right-40 top-1/4 h-125 w-125 rounded-full bg-amber-400/10 blur-[120px]"
       />
 
       {/* Green glow */}
@@ -48,7 +50,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute -bottom-40 left-10 h-[450px] w-[450px] rounded-full bg-emerald-400/10 blur-[120px]"
+        className="absolute -bottom-40 left-10 h-112.5 w-112.5 rounded-full bg-emerald-400/10 blur-[120px]"
       />
 
       {/* =========================================================
@@ -120,7 +122,8 @@ export default function Hero() {
                   ]}
                   wrapper="span"
                   speed={50}
-                  repeat={Infinity}
+                  repeat={0}
+  cursor={!typingComplete}
                 />
               </span>
             </motion.h1>
@@ -208,18 +211,18 @@ export default function Hero() {
             className="relative mt-14 flex justify-center lg:col-span-5 lg:mt-0 lg:justify-end"
           >
             {/* Image glow */}
-            <div className="absolute right-0 top-1/2 h-[500px] w-[350px] -translate-y-1/2 rounded-full bg-amber-400/10 blur-[100px]" />
+            <div className="absolute right-0 top-1/2 h-125 w-87.5 -translate-y-1/2 rounded-full bg-amber-400/10 blur-[100px]" />
 
             {/* Image frame */}
-            <div className="relative w-[270px] sm:w-[330px] lg:w-[390px] xl:w-[430px]">
+            <div className="relative w-67.5sm:w-[330px] lg:w-97.5 xl:w-107.5">
               
               {/* Offset decorative border */}
-              <div className="absolute -right-5 -top-5 h-full w-full rounded-[2rem] border border-amber-400/20" />
+              <div className="absolute -right-5 -top-5 h-full w-full rounded-4xl border border-amber-400/20" />
 
               {/* Image */}
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[1.5rem] bg-slate-900 shadow-2xl shadow-black/50">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-3xl  shadow-2xl shadow-black/50">
                 <Image
-                  src={edem}
+                  src={abm3Hero}
                   alt="Edem Adzogenu"
                   fill
                   priority
