@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 import afcfta from "../../assets/afcfta.svg";

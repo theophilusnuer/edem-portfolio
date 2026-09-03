@@ -21,8 +21,6 @@ const Navbar = () => {
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -31,32 +29,8 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const [lastPathname, setLastPathname] = useState(pathname);
-  if (pathname !== lastPathname) {
-    setLastPathname(pathname);
-    if (mobileOpen) setMobileOpen(false);
-  }
-
-  // On non-home pages we always want the translucent style
+  // On non-home pages we always want the solid style
   const isSolid = !isHome || scrolled;
-
-  useEffect(() => {
-    if (!isHome) {
-      setScrolled(true);
-      return;
-    }
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isHome]);
 
   return (
     <nav

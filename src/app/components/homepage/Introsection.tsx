@@ -32,7 +32,7 @@ export default function IntroSection() {
               transition={{ duration: 0.8 }}
               className="font-outfit text-4xl font-semibold leading-[1.08] tracking-[-0.035em] text-slate-900 sm:text-5xl md:text-6xl"
             >
-              Africa's transformation requires{"  "}
+              Africa&apos;s transformation requires{"  "}
               <span className="text-amber-500">
                 systems that connect.
               </span>

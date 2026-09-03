@@ -138,7 +138,7 @@ export default function Hero() {
               Edem Adzogenu is an International Business and Policy Consultant,
               entrepreneur, and Founder & Co-Chair of AfroChampions. His work
               focuses on building platforms that strengthen coordination,
-              mobilise investment, and advance Africa's economic transformation.
+              mobilise investment, and advance Africa&apos;s economic transformation.
             </motion.p>
 
             {/* CTA */}

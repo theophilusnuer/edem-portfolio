@@ -122,7 +122,7 @@ export default function ContactForm() {
 
             {/* Heading */}
             <h1 className="mt-7 max-w-xl font-outfit text-5xl font-semibold leading-[0.98] tracking-[-0.04em] text-slate-900 sm:text-6xl lg:text-7xl">
-              Let's have a
+              Let&apos;s have a
               <span className="block text-slate-400">
                 conversation.
               </span>
@@ -155,8 +155,8 @@ export default function ContactForm() {
             {/* Philosophy quote */}
             <div className="mt-12 max-w-md border-l-2 border-amber-500 pl-5">
               <p className="font-outfit text-lg leading-7 text-slate-700">
-                "Africa's transformation requires systems that connect
-                governments, businesses, and citizens across borders."
+                &quot;Africa&apos;s transformation requires systems that connect
+                governments, businesses, and citizens across borders.&quot;
               </p>
             </div>
 

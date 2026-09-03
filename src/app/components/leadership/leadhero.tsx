@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 
 import nkrumah from "../../assets/nkrumah.jpeg";
 import mandela from "../../assets/mandela.webp";

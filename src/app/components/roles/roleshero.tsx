@@ -1,92 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe2 } from "lucide-react";
-
-
-
-
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut" as const,
-    },
-  },
-};
 
 export default function RolesHero() {
   return (
-<<<<<<< HEAD
-    <section className="relative w-full overflow-hidden px-4 py-14 sm:px-6 md:px-10 md:py-20 lg:px-16">
-      {/* Watermark */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none whitespace-nowrap font-outfit text-[22vw] font-bold leading-none text-foreground/[0.03] sm:text-[16vw]"
-      >
-        Roles
-      </span>
-
-      {/* Intro */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative mx-auto max-w-2xl text-center"
-      >
-        <span className="font-outfit text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-          Advisory &amp; Governance
-        </span>
-        <h1 className="mt-4 font-display text-5xl font-medium tracking-tight text-foreground sm:text-6xl">
-          Roles
-        </h1>
-        <div className="mx-auto mt-6 h-px w-16 bg-accent/40" />
-        <p className="mt-6 text-[15px] leading-relaxed text-foreground/65 sm:text-base md:text-lg">
-          Edem serves on boards and advisory councils that shape health,
-          innovation, and governance systems across Africa and globally.
-        </p>
-      </motion.div>
-
-      {/* Current Roles */}
-      <div className="relative mx-auto mt-20 max-w-5xl md:mt-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl"
-        >
-          Current Roles
-        </motion.h2>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2"
-        >
-          {roles.map((role, i) => (
-            <motion.div
-              key={role.institution}
-              variants={item}
-              className="group relative overflow-hidden border border-black/[0.08] bg-white/50 p-6 transition-colors hover:border-accent"
-            >
-              <span className="absolute -right-2 -top-4 font-outfit text-6xl font-bold text-foreground/5 transition-colors group-hover:text-accent/10">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="relative font-outfit text-lg font-semibold text-foreground sm:text-xl">
-                {role.position}
-              </p>
-              <p className="relative mt-1 text-sm text-foreground/65 sm:text-base">
-                {role.institution}
-              </p>
-=======
     <main className="relative overflow-hidden bg-[#f8f7f3] text-slate-900">
       {/* =========================================================
           HERO
@@ -109,48 +26,8 @@ export default function RolesHero() {
                 <span className="h-1.5 w-12 bg-amber-600" />
               
               </div>
->>>>>>> 5710dc9 (new ui update)
             </motion.div>
 
-<<<<<<< HEAD
-      {/* Expertise Areas */}
-      <div className="relative mx-auto mt-20 max-w-4xl md:mt-28">
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl"
-        >
-          Expertise Areas
-        </motion.h2>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {expertise.map((area) => (
-            <motion.div
-              key={area.label}
-              variants={badge}
-              className="group flex items-center gap-4 border border-black/[0.08] bg-white/50 p-5 transition-colors hover:border-accent"
-            >
-              <svg
-                className="h-6 w-6 shrink-0 text-accent"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                {area.icon}
-              </svg>
-              <p className="font-outfit text-sm font-semibold text-foreground sm:text-base">
-                {area.label}
-              </p>
-=======
             {/* Main heading */}
             <div className="lg:col-span-8">
               <motion.h1
@@ -195,7 +72,6 @@ export default function RolesHero() {
               className="mt-12 flex items-end lg:col-span-2 lg:mt-0 lg:justify-end"
             >
            
->>>>>>> 5710dc9 (new ui update)
             </motion.div>
           </div>
         </div>

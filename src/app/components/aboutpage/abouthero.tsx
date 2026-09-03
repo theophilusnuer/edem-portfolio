@@ -6,14 +6,10 @@ import { motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowUpRight,
-  Globe2,
-  Landmark,
-  Network,
 } from "lucide-react";
 
 import abm1 from "../../assets/abm1.jpg";
 import abm2 from "../../assets/amb2.jpeg";
-import abm3 from "../../assets/abm3.jpeg";
 
 const expertise = [
   "Innovation",
@@ -197,13 +193,13 @@ export default function AboutHero() {
 
             <div className="lg:col-span-8 lg:col-start-5">
               <p className="font-outfit text-3xl font-medium leading-[1.25] tracking-[-0.025em] text-slate-900 sm:text-4xl">
-                Edem's work sits at the intersection of business strategy,
+                Edem&apos;s work sits at the intersection of business strategy,
                 public policy and systems innovation.
               </p>
 
               <div className="mt-10 space-y-7 text-base leading-8 text-slate-600 sm:text-lg">
                 <p>
-                  He is driven by the belief that Africa's transformation
+                  He is driven by the belief that Africa&apos;s transformation
                   requires systems that connect governments, businesses, and
                   citizens across borders — enabling shared prosperity through
                   collaboration, innovation, and trust.
@@ -300,17 +296,17 @@ export default function AboutHero() {
 
             <div className="lg:col-span-7 lg:col-start-6">
               <p className="text-base leading-8 text-slate-600">
-                AfroChampions was founded on the recognition that Africa's
+                AfroChampions was founded on the recognition that Africa&apos;s
                 integration requires coordinated action between public and
-                private-sector "champions."
+                  private-sector &quot;champions.&quot;
               </p>
 
               <p className="mt-7 text-base leading-8 text-slate-600">
-                Under Edem's strategic leadership as Founder and Co-Chair, the
+                Under Edem&apos;s strategic leadership as Founder and Co-Chair, the
                 organisation has become known for developing transmediary
                 platforms, aggregated systems, and special-purpose vehicles
                 that break the fragmentation of existing continental
-                initiatives and create the structural conditions for Africa's
+                initiatives and create the structural conditions for Africa&apos;s
                 transformation.
               </p>
 

@@ -4,7 +4,6 @@ import "./globals.css";
 import { Outfit, Fraunces } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import PageBackground from "./components/PageBackground";
 
 const outfit = Outfit({
   variable: "--font-outfit",

@@ -15,7 +15,7 @@ export function LeadershipPhilosophy() {
 
           <div className="mt-8 lg:col-span-8 lg:col-start-5 lg:mt-0">
             <p className="font-outfit text-3xl font-medium leading-[1.2] tracking-[-0.025em] text-slate-900 sm:text-4xl md:text-5xl">
-              Africa's future depends on structures capable of responding to
+              Africa&apos;s future depends on structures capable of responding to
               fast-shifting opportunities.
             </p>
 
