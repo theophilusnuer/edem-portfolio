@@ -32,7 +32,7 @@ export default function Footer({ color }: FooterProps) {
           </p>
 
           <p className="text-xs text-slate-400">
-            © {new Date().getFullYear()} Edem Adzogenu
+            © {new Date().getFullYear()} Copyright
           </p>
         </div>
       </div>

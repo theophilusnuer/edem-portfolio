@@ -27,10 +27,45 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://edemadzogenu.com";
+
 export const metadata: Metadata = {
-  title: "Edem Adzogenu",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Edem Adzogenu",
+    template: "%s | Edem Adzogenu",
+  },
   description:
     "Edem Adzogenu is an International Business and Policy Consultant, entrepreneur, and Founder & Co Chair of AfroChampions.",
+  keywords: [
+    "Edem Adzogenu",
+    "AfroChampions",
+    "AfCFTA",
+    "Africa business policy",
+    "African economic transformation",
+  ],
+  authors: [{ name: "Edem Adzogenu" }],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Edem Adzogenu",
+    title: "Edem Adzogenu",
+    description:
+      "Edem Adzogenu is an International Business and Policy Consultant, entrepreneur, and Founder & Co Chair of AfroChampions.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Edem Adzogenu",
+    description:
+      "Edem Adzogenu is an International Business and Policy Consultant, entrepreneur, and Founder & Co Chair of AfroChampions.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

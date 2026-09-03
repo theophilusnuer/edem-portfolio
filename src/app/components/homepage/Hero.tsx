@@ -73,15 +73,15 @@ const [typingComplete, setTypingComplete] = useState(false);
       />
 
       {/* Decorative rings */}
-      <div className="absolute right-[8%] top-[18%] hidden h-[520px] w-[520px] rounded-full border border-white/10 lg:block" />
+      <div className="absolute right-[8%] top-[18%] hidden h-130 w-130 rounded-full border border-white/10 lg:block" />
 
-      <div className="absolute right-[12%] top-[24%] hidden h-[400px] w-[400px] rounded-full border border-white/5 lg:block" />
+      <div className="absolute right-[12%] top-[24%] hidden h-100 w-100 rounded-full border border-white/5 lg:block" />
 
       {/* =========================================================
           CONTENT
       ========================================================== */}
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1500px] items-center px-6 pb-12 pt-28 sm:px-10 lg:px-16">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl items-center px-6 pb-12 pt-28 sm:px-10 lg:px-16">
         <div className="grid w-full grid-cols-1 items-center lg:grid-cols-12">
           
           {/* =====================================================
@@ -214,7 +214,7 @@ const [typingComplete, setTypingComplete] = useState(false);
             <div className="absolute right-0 top-1/2 h-125 w-87.5 -translate-y-1/2 rounded-full bg-amber-400/10 blur-[100px]" />
 
             {/* Image frame */}
-            <div className="relative w-67.5sm:w-[330px] lg:w-97.5 xl:w-107.5">
+            <div className="relative w-67.5 sm:w-82.5 lg:w-97.5 xl:w-107.5">
               
               {/* Offset decorative border */}
               <div className="absolute -right-5 -top-5 h-full w-full rounded-4xl border border-amber-400/20" />
@@ -234,7 +234,7 @@ const [typingComplete, setTypingComplete] = useState(false);
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                 {/* Bottom image label */}
-                <div className="absolute sm:hidden bottom-0 left- right-0 p-6">
+                <div className="absolute sm:hidden bottom-0 left-0 right-0 p-6">
                   <p className="text-base uppercase tracking-[0.25em] text-white/50">
                     Edem Adzogenu
                   </p>
@@ -256,7 +256,7 @@ const [typingComplete, setTypingComplete] = useState(false);
                   duration: 0.8,
                   delay: 1.2,
                 }}
-                className="absolute -bottom-7 -left-12 hidden w-[210px] rounded-2xl border border-white/10 bg-white/10 p-4 shadow-2xl backdrop-blur-xl sm:block"
+                className="absolute -bottom-7 -left-12 hidden w-52.5 rounded-2xl border border-white/10 bg-white/10 p-4 shadow-2xl backdrop-blur-xl sm:block"
               >
                 <div className="mb-3 flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
